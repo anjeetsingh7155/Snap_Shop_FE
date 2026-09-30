@@ -1,9 +1,10 @@
-import { ActivityIndicator, View } from "react-native";
+import { ActivityIndicator, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useAuth } from "../context/AuthContext";
 import { colors } from "../theme/colors";
 import type { AuthStackParamList } from "./types";
+import Logo from "../components/Logo";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import Home from "../screens/Home";
@@ -18,6 +19,10 @@ export default function AppNavigator() {
   if (loading) {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: colors.white }}>
+        <Logo size={110} />
+        <Text style={{ fontSize: 26, fontWeight: "bold", color: colors.primary, marginBottom: 20 }}>
+          Snap Shop
+        </Text>
         <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
