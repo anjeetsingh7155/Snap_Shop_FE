@@ -18,4 +18,6 @@ export type TabParamList = {
 export type MainStackParamList = {
   Tabs: NavigatorScreenParams<TabParamList>;
   ProductDetails: { productId: string };
+  Checkout: undefined;
+  OrderSuccess: { orderId: string };
 };

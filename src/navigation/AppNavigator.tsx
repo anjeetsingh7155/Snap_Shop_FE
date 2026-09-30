@@ -15,6 +15,8 @@ import Cart from "../screens/Cart";
 import MyOrders from "../screens/MyOrders";
 import Profile from "../screens/Profile";
 import ProductDetails from "../screens/ProductDetails";
+import Checkout from "../screens/Checkout";
+import OrderSuccess from "../screens/OrderSuccess";
 
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const MainStack = createNativeStackNavigator<MainStackParamList>();
@@ -68,6 +70,8 @@ export default function AppNavigator() {
         <MainStack.Navigator screenOptions={{ headerShown: false }}>
           <MainStack.Screen name="Tabs" component={Tabs} />
           <MainStack.Screen name="ProductDetails" component={ProductDetails} />
+          <MainStack.Screen name="Checkout" component={Checkout} />
+          <MainStack.Screen name="OrderSuccess" component={OrderSuccess} options={{ gestureEnabled: false }} />
         </MainStack.Navigator>
       ) : (
         <AuthStack.Navigator screenOptions={{ headerShown: false }}>
