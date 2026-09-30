@@ -20,4 +20,5 @@ export type MainStackParamList = {
   ProductDetails: { productId: string };
   Checkout: undefined;
   OrderSuccess: { orderId: string };
+  OrderDetails: { orderId: string };
 };
