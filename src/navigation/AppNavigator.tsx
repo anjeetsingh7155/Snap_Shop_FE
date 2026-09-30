@@ -1,16 +1,50 @@
-import { ActivityIndicator, Text, View } from "react-native";
+import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "../context/AuthContext";
 import { colors } from "../theme/colors";
-import type { AuthStackParamList } from "./types";
+import type { AuthStackParamList, MainStackParamList, TabParamList } from "./types";
 import Logo from "../components/Logo";
+import AppName from "../components/AppName";
 import Login from "../screens/Login";
 import Register from "../screens/Register";
 import Home from "../screens/Home";
+import Cart from "../screens/Cart";
+import MyOrders from "../screens/MyOrders";
+import Profile from "../screens/Profile";
+import ProductDetails from "../screens/ProductDetails";
 
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();
-const MainStack = createNativeStackNavigator();
+const MainStack = createNativeStackNavigator<MainStackParamList>();
+const Tab = createBottomTabNavigator<TabParamList>();
+
+// the bottom tab bar (Home, Cart, My Orders, Profile)
+function Tabs() {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.textLight,
+        tabBarIcon: ({ color, size }) => {
+          // choose an icon for each tab
+          let iconName: keyof typeof Ionicons.glyphMap = "home-outline";
+          if (route.name === "Cart") iconName = "cart-outline";
+          if (route.name === "MyOrders") iconName = "receipt-outline";
+          if (route.name === "Profile") iconName = "person-outline";
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+      })}
+    >
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Screen name="MyOrders" component={MyOrders} options={{ title: "My Orders" }} />
+      <Tab.Screen name="Profile" component={Profile} />
+    </Tab.Navigator>
+  );
+}
 
 export default function AppNavigator() {
   const { user, loading } = useAuth();
@@ -20,9 +54,9 @@ export default function AppNavigator() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: colors.white }}>
         <Logo size={110} />
-        <Text style={{ fontSize: 26, fontWeight: "bold", color: colors.primary, marginBottom: 20 }}>
-          Snap Shop
-        </Text>
+        <View style={{ marginBottom: 20 }}>
+          <AppName size={40} dark />
+        </View>
         <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
@@ -32,7 +66,8 @@ export default function AppNavigator() {
     <NavigationContainer>
       {user ? (
         <MainStack.Navigator screenOptions={{ headerShown: false }}>
-          <MainStack.Screen name="Home" component={Home} />
+          <MainStack.Screen name="Tabs" component={Tabs} />
+          <MainStack.Screen name="ProductDetails" component={ProductDetails} />
         </MainStack.Navigator>
       ) : (
         <AuthStack.Navigator screenOptions={{ headerShown: false }}>

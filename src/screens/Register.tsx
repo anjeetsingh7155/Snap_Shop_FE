@@ -10,6 +10,7 @@ import { colors } from "../theme/colors";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
+import AppName from "../components/AppName";
 
 type Props = NativeStackScreenProps<AuthStackParamList, "Register">;
 
@@ -68,7 +69,7 @@ export default function Register({ navigation }: Props) {
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
             <Logo size={90} />
-            <Text style={styles.appName}>Snap Shop</Text>
+            <AppName size={38} />
             <Text style={styles.tagline}>Create your account</Text>
           </View>
 
@@ -143,12 +144,6 @@ const styles = StyleSheet.create({
   header: {
     alignItems: "center",
     paddingVertical: 16,
-  },
-  appName: {
-    fontSize: 26,
-    fontWeight: "bold",
-    color: colors.white,
-    marginTop: 8,
   },
   tagline: {
     fontSize: 15,

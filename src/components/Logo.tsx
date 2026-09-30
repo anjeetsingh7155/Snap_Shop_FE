@@ -47,7 +47,6 @@ const logoXml = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200"
 <path d="M475 365 Q480 335 515 335 L820 335 Q860 335 868 375 L920 765 Q928 825 870 835 L500 835 Q445 835 438 780 L415 410 Q410 365 475 365Z" fill="url(#bag)" filter="url(#shadow)" />
 <path d="M535 430 C590 405 675 410 755 440 C825 466 850 510 842 555 C833 605 780 620 715 610 L615 592 C565 583 535 600 535 628 C535 661 580 680 650 698 L760 725 C825 741 865 773 858 805 C852 833 822 846 780 850 C700 857 610 836 545 810 L570 755 C635 780 705 792 758 785 C786 781 795 768 780 757 C766 746 735 738 695 728 L595 703 C515 683 470 645 475 595 C480 545 530 515 600 520 L720 535 C757 540 775 530 772 510 C768 488 728 475 680 462 L560 435Z" fill="#FFFFFF" />
 <path d="M735 456 C790 474 820 497 822 528 C824 550 808 566 780 570 C790 548 780 530 748 516 C720 504 695 497 666 489Z" fill="#CCFBF1" opacity=".85" />
-<text x="600" y="1015" text-anchor="middle" fill="#FFFFFF" font-family="Inter, Arial, Helvetica, sans-serif" font-size="128" font-weight="800" letter-spacing="-4">Snap Shop</text>
 </g>
 <rect x="55" y="55" width="1090" height="1090" rx="205" fill="none" stroke="#5EEAD4" stroke-opacity=".35" stroke-width="4" />
 </g>

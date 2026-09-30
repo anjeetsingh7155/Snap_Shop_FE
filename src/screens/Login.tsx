@@ -10,6 +10,7 @@ import { colors } from "../theme/colors";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import Logo from "../components/Logo";
+import AppName from "../components/AppName";
 
 type Props = NativeStackScreenProps<AuthStackParamList, "Login">;
 
@@ -48,8 +49,8 @@ export default function Login({ navigation }: Props) {
       >
         <ScrollView contentContainerStyle={styles.scroll} keyboardShouldPersistTaps="handled">
           <View style={styles.header}>
-            <Logo size={130} />
-            <Text style={styles.appName}>Snap Shop</Text>
+            <Logo size={90} />
+            <AppName size={38} />
             <Text style={styles.tagline}>Your one-stop shop</Text>
           </View>
 
@@ -101,13 +102,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: "center",
-    paddingVertical: 24,
-  },
-  appName: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: colors.white,
-    marginTop: 10,
+    paddingVertical: 16,
   },
   tagline: {
     fontSize: 15,
