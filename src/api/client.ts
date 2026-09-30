@@ -5,7 +5,7 @@ export const TOKEN_KEY = "snapshop_token";
 
 export const api = axios.create({
   baseURL: `${process.env.EXPO_PUBLIC_API_URL}/api/v1`,
-  timeout: 15000,
+  timeout: 60000,
 });
 
 api.interceptors.request.use(async (config) => {
