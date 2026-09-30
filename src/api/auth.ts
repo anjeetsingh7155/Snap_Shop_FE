@@ -34,10 +34,3 @@ export const getProfile = async (): Promise<User> => {
   const res = await api.get<{ user: RawUser }>("/auth/profile");
   return toUser(res.data.user);
 };
-
-export const updateProfile = async (
-  data: Partial<Pick<User, "name" | "phone" | "address">>
-): Promise<User> => {
-  const res = await api.put<{ user: RawUser }>("/auth/profile", data);
-  return toUser(res.data.user);
-};

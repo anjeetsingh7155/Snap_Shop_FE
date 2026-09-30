@@ -21,7 +21,6 @@ export default function Input({
   keyboardType = "default",
   autoCapitalize = "sentences",
 }: Props) {
-  // for password fields, this decides if the text is hidden or shown
   const [hidden, setHidden] = useState(secureTextEntry);
 
   return (

@@ -20,7 +20,6 @@ export default function Cart() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // reload the cart every time this tab is opened
   useFocusEffect(
     useCallback(() => {
       setError("");
@@ -31,7 +30,6 @@ export default function Cart() {
     }, [])
   );
 
-  // change the quantity of one item
   const changeQuantity = async (item: CartItem, newQuantity: number) => {
     if (newQuantity < 1 || newQuantity > item.stock) return;
     try {
@@ -42,7 +40,6 @@ export default function Cart() {
     }
   };
 
-  // remove one item from the cart
   const removeItem = async (item: CartItem) => {
     try {
       const updated = await removeFromCart(item.productId);
@@ -103,7 +100,6 @@ export default function Cart() {
             contentContainerStyle={{ padding: 12 }}
           />
 
-          {/* total and checkout button */}
           <View style={styles.footer}>
             <View style={styles.totalRow}>
               <Text style={styles.totalLabel}>Total ({cart.totalItems} items)</Text>

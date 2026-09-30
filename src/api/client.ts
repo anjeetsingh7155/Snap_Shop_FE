@@ -8,7 +8,6 @@ export const api = axios.create({
   timeout: 15000,
 });
 
-// adds the saved login token to every request
 api.interceptors.request.use(async (config) => {
   const token = await SecureStore.getItemAsync(TOKEN_KEY);
   if (token) {

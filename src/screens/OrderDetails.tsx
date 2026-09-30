@@ -42,7 +42,6 @@ export default function OrderDetails() {
         <Text style={styles.message}>{error || "Order not found"}</Text>
       ) : (
         <ScrollView contentContainerStyle={{ padding: 16 }}>
-          {/* order id, date and status */}
           <View style={styles.card}>
             <View style={styles.row}>
               <Text style={styles.orderId}>Order #{order._id.slice(-6).toUpperCase()}</Text>
@@ -51,7 +50,6 @@ export default function OrderDetails() {
             <Text style={styles.date}>Placed on {new Date(order.createdAt).toLocaleString()}</Text>
           </View>
 
-          {/* items */}
           <Text style={styles.sectionTitle}>Items</Text>
           <View style={styles.card}>
             {order.items.map((item) => (
@@ -72,7 +70,6 @@ export default function OrderDetails() {
             </View>
           </View>
 
-          {/* delivery and payment */}
           <Text style={styles.sectionTitle}>Delivery Address</Text>
           <View style={styles.card}>
             <Text style={styles.info}>{order.shippingAddress}</Text>

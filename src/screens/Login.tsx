@@ -23,7 +23,6 @@ export default function Login({ navigation }: Props) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleLogin = async () => {
-    // simple check before calling the server
     if (email.trim() === "" || password === "") {
       setErrorMessage("Please enter your email and password");
       return;
@@ -33,7 +32,6 @@ export default function Login({ navigation }: Props) {
     setLoading(true);
     try {
       await login(email.trim(), password);
-      // after a successful login the app moves to Home by itself
     } catch (error) {
       setErrorMessage(getErrorMessage(error));
       setLoading(false);

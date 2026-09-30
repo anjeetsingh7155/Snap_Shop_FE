@@ -3,7 +3,7 @@ import { colors } from "../theme/colors";
 
 type Props = {
   size?: number;
-  dark?: boolean; // true = teal text (for white screens), false = white text (for teal screens)
+  dark?: boolean;
 };
 
 export default function AppName({ size = 30, dark = false }: Props) {
@@ -22,7 +22,6 @@ export default function AppName({ size = 30, dark = false }: Props) {
 
 const styles = StyleSheet.create({
   name: {
-    // the bold version of the font is loaded in App.tsx
     fontFamily: "EduQLDHand_700Bold",
     paddingHorizontal: 6,
     textShadowOffset: { width: 2, height: 3 },

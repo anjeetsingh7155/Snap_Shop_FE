@@ -25,7 +25,6 @@ export default function ProductDetails() {
   const [adding, setAdding] = useState(false);
   const [error, setError] = useState("");
 
-  // load the product when the screen opens
   useEffect(() => {
     getProduct(productId)
       .then(setProduct)
@@ -48,7 +47,6 @@ export default function ProductDetails() {
 
   return (
     <SafeAreaView style={styles.container} edges={["top", "bottom"]}>
-      {/* top bar with back button */}
       <View style={styles.topBar}>
         <Pressable onPress={() => navigation.goBack()} style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color={colors.white} />
@@ -75,7 +73,6 @@ export default function ProductDetails() {
             <Text style={styles.sectionTitle}>Description</Text>
             <Text style={styles.description}>{product.description}</Text>
 
-            {/* quantity selector (only if the product is in stock) */}
             {product.stock > 0 && (
               <>
                 <View style={styles.qtyRow}>

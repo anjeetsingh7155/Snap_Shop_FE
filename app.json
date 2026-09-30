@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "SnapShop",
-    "slug": "SnapShop_FE",
+    "slug": "anjeet",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/appLogo.png",
@@ -19,6 +19,12 @@
     "plugins": [
       "expo-secure-store",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "259bf2bd-294d-4eb4-891b-7760ca59acb8"
+      }
+    },
+    "owner": "anjeetsingh7155"
   }
 }

@@ -24,7 +24,6 @@ export default function Register({ navigation }: Props) {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleRegister = async () => {
-    // simple checks before calling the server
     if (name.trim().length < 3) {
       setErrorMessage("Name must be at least 3 characters");
       return;

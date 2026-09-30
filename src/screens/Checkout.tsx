@@ -23,7 +23,6 @@ export default function Checkout() {
   const [cart, setCart] = useState<Cart | null>(null);
   const [loading, setLoading] = useState(true);
   const [placing, setPlacing] = useState(false);
-  // start with the address and phone saved in the profile (if any)
   const [address, setAddress] = useState(user?.address || "");
   const [phone, setPhone] = useState(user?.phone || "");
 
@@ -35,7 +34,6 @@ export default function Checkout() {
   }, []);
 
   const handlePlaceOrder = async () => {
-    // simple checks before calling the server
     if (address.trim().length < 5) {
       Alert.alert("Missing address", "Please enter your full delivery address.");
       return;
@@ -48,7 +46,6 @@ export default function Checkout() {
     setPlacing(true);
     try {
       const order = await placeOrder({ shippingAddress: address.trim(), phone: phone.trim() });
-      // go to the success screen (replace so back does not return to checkout)
       navigation.replace("OrderSuccess", { orderId: order._id });
     } catch (err) {
       Alert.alert("Could not place order", getErrorMessage(err));
@@ -74,7 +71,6 @@ export default function Checkout() {
           behavior={Platform.OS === "ios" ? "padding" : undefined}
         >
           <ScrollView contentContainerStyle={{ padding: 16 }} keyboardShouldPersistTaps="handled">
-            {/* order summary */}
             <Text style={styles.sectionTitle}>Order Summary</Text>
             <View style={styles.card}>
               {cart?.items.map((item) => (
@@ -91,7 +87,6 @@ export default function Checkout() {
               </View>
             </View>
 
-            {/* delivery details */}
             <Text style={styles.sectionTitle}>Delivery Details</Text>
             <Input
               label="Address"
@@ -107,7 +102,6 @@ export default function Checkout() {
               keyboardType="phone-pad"
             />
 
-            {/* payment method (only Cash on Delivery) */}
             <Text style={styles.sectionTitle}>Payment Method</Text>
             <View style={styles.codBox}>
               <Ionicons name="cash-outline" size={22} color={colors.primary} />

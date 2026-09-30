@@ -4,7 +4,6 @@ import { colors } from "../theme/colors";
 import { useAuth } from "../context/AuthContext";
 import Button from "../components/Button";
 
-// TEMPORARY screen - the full profile (edit details) comes in a later step
 export default function Profile() {
   const { user, logout } = useAuth();
 

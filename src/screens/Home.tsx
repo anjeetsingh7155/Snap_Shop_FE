@@ -20,20 +20,18 @@ export default function Home() {
 
   const [categories, setCategories] = useState<Category[]>([]);
   const [products, setProducts] = useState<Product[]>([]);
-  const [searchText, setSearchText] = useState(""); // what the user is typing
-  const [search, setSearch] = useState(""); // the search that is applied
-  const [category, setCategory] = useState(""); // selected category id ("" = All)
+  const [searchText, setSearchText] = useState("");
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // load categories one time
   useEffect(() => {
     getCategories()
       .then(setCategories)
       .catch((err) => setError(getErrorMessage(err)));
   }, []);
 
-  // load products again whenever search or category changes
   useEffect(() => {
     setLoading(true);
     setError("");
@@ -45,14 +43,12 @@ export default function Home() {
 
   return (
     <SafeAreaView style={styles.container} edges={["top"]}>
-      {/* header with logo and name */}
       <View style={styles.header}>
         <View style={styles.brandRow}>
           <Logo size={34} />
           <AppName size={24} />
         </View>
 
-        {/* search box */}
         <View style={styles.searchBox}>
           <Ionicons name="search" size={18} color={colors.textLight} />
           <TextInput
@@ -77,7 +73,6 @@ export default function Home() {
         </View>
       </View>
 
-      {/* category chips */}
       <View style={styles.chipRow}>
         <FlatList
           horizontal
@@ -101,7 +96,6 @@ export default function Home() {
         />
       </View>
 
-      {/* product list */}
       {loading ? (
         <ActivityIndicator size="large" color={colors.primary} style={{ marginTop: 40 }} />
       ) : error ? (

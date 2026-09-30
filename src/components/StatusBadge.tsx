@@ -2,7 +2,6 @@ import { StyleSheet, Text, View } from "react-native";
 import { colors } from "../theme/colors";
 import type { OrderStatus } from "../types";
 
-// background and text color for each order status
 const statusColors: Record<OrderStatus, { bg: string; text: string }> = {
   Pending: { bg: "#FEF3C7", text: "#B45309" },
   Confirmed: { bg: "#DBEAFE", text: "#1D4ED8" },

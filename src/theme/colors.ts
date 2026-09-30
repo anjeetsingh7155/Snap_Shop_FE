@@ -1,8 +1,7 @@
-// all the colors of the app are kept here, change them here only
 export const colors = {
-  primary: "rgb(13, 148, 136)", // main teal color
-  primaryDark: "#0F766E", // used when a button is pressed
-  primaryLight: "#F0FDFA", // very light teal for highlights
+  primary: "rgb(13, 148, 136)",
+  primaryDark: "#0F766E",
+  primaryLight: "#F0FDFA",
   white: "#FFFFFF",
   background: "#F9FAFB",
   text: "#1F2937",

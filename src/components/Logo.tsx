@@ -1,6 +1,5 @@
 import { SvgXml } from "react-native-svg";
 
-// this is the SVG code of the Snap Shop logo
 const logoXml = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200">
 <defs>
 <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -52,8 +51,6 @@ const logoXml = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200"
 </g>
 </svg>`;
 
-// the blur and shadow effects are removed because phones may not draw them properly
-// (delete these three lines if you want to try the effects)
 const simpleLogoXml = logoXml
   .replace(/<ellipse[^>]*\/>/, "")
   .replace(/ filter="[^"]*"/g, "")

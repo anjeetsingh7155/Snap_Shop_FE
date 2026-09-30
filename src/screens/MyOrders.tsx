@@ -18,7 +18,6 @@ export default function MyOrders() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  // reload the orders every time this tab is opened
   useFocusEffect(
     useCallback(() => {
       setError("");

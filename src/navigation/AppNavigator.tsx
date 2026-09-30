@@ -23,7 +23,6 @@ const AuthStack = createNativeStackNavigator<AuthStackParamList>();
 const MainStack = createNativeStackNavigator<MainStackParamList>();
 const Tab = createBottomTabNavigator<TabParamList>();
 
-// the bottom tab bar (Home, Cart, My Orders, Profile)
 function Tabs() {
   return (
     <Tab.Navigator
@@ -32,7 +31,6 @@ function Tabs() {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textLight,
         tabBarIcon: ({ color, size }) => {
-          // choose an icon for each tab
           let iconName: keyof typeof Ionicons.glyphMap = "home-outline";
           if (route.name === "Cart") iconName = "cart-outline";
           if (route.name === "MyOrders") iconName = "receipt-outline";
@@ -52,7 +50,6 @@ function Tabs() {
 export default function AppNavigator() {
   const { user, loading } = useAuth();
 
-  // wait while we check if the user is already logged in
   if (loading) {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center", backgroundColor: colors.white }}>

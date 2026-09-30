@@ -5,7 +5,6 @@ import { AuthProvider } from "./context/AuthContext";
 import AppNavigator from "./navigation/AppNavigator";
 
 export default function App() {
-  // load the font of the app name before showing any screen
   const [fontsLoaded] = useFonts({ EduQLDHand_700Bold });
 
   if (!fontsLoaded) {
