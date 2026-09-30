@@ -17,7 +17,6 @@ api.interceptors.request.use(async (config) => {
   return config;
 });
 
-// turns any error into a readable message for the screens
 export const getErrorMessage = (error: unknown): string => {
   if (axios.isAxiosError(error)) {
     if (error.response) {

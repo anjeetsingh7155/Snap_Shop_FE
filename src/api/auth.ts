@@ -1,7 +1,6 @@
 import { api } from "./client";
 import type { User } from "../types";
 
-// the profile routes return "_id", the login route returns "id"
 type RawUser = { _id: string; name: string; email: string; phone: string; address: string };
 
 const toUser = (u: RawUser): User => ({
